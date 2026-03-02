@@ -31,22 +31,20 @@ public class Tracker {
         for (int index = 0; index < items.length; index++) {
             Item name = items[index];
             if (name != null) {
-                result[size] = name;
-                size++;
+                result[size++] = name;
             }
         }
         return Arrays.copyOf(result, size);
     }
 
     public Item[] findByName(String key) {
-        Item[] result = findAll();
-        int size = 0;
-        for (int index = 0; index < findAll().length; index++) {
-            if (result[index].getName().equals(key)) {
-                result[size] = result[index];
-                size++;
+        Item[] result = new Item[size];
+        int count = 0;
+        for (int index = 0; index < size; index++) {
+            if (items[index].getName().equals(key)) {
+                result[count++] = items[index];
             }
         }
-        return Arrays.copyOf(result, size);
+        return Arrays.copyOf(result, count);
     }
 }
